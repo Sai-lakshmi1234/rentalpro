@@ -167,9 +167,9 @@ function updateCartDisplay() {
         const itemDetails = `
             <img src="${imagePath}" alt="${item.name}" class="cart-item-image">
             <h3>${item.name}</h3>
-            <p>Price: $${item.priceUSD.toFixed(2)} / ₹${item.priceINR.toFixed(2)} per ${item.unit}</p>
+            <p>Price: ₹${item.priceINR.toFixed(2)} per ${item.unit}</p>
             <p>Selected Quantity: ${item.quantity} ${item.unit}(s)</p>
-            <p>Total: $${(item.priceUSD * item.quantity).toFixed(2)} / ₹${(item.priceINR * item.quantity).toFixed(2)}</p>
+            <p>Total: ₹${(item.priceINR * item.quantity).toFixed(2)}</p>
             <div>
                 <button onclick="updateQuantity(${item.id}, 'decrease')">-</button>
                 ${item.quantity}
