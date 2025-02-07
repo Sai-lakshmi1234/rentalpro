@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookings Page</title>
+    <link rel="stylesheet" href="{% static 'bookings.css' %}">
+</head>
+<body>
+    <div class="menu">
+        <a href="{% url 'myapp:home'%}">Home</a>
+        <a href="{% url 'myapp:about'%}">About</a>
+        <a href="{% url 'myapp:services'%}">Services</a>
+        <a href="{% url 'myapp:contact'%}">Contact</a>
+        <a href="{% url 'myapp:bookings'%}">Bookings</a>
+    </div>
+    <h1>Book Your Vehicle</h1>
+    <div id="product-container">
+        <!-- Product 1 -->
+        <div class="product" data-id="1">
+            <img src="../static/av.jpg" alt="Product 1">
+            <h3>Avantura Choppers Pravega </h3>
+            <div>
+                <label for="unit1">Price per:</label>
+                <select id="unit1" data-id="1" onchange="updateProductPrice(1)">
+                    <option value="hour">Hourly</option>
+                    <option value="day">Daily</option>
+                    <option value="month">Monthly</option>
+                </select>
+            </div><br>
+            <div>
+                <label for="quantity1">Time/Months:</label>
+                <input type="number" id="quantity1" value="1" min="1" onchange="updateProductPrice(1)">
+            </div>
+            <p id="price1">RS.50/hour</p>
+            <button class="add-to-cart" onclick="addToCart(1, 'Product 1', 10, 'hour')">Add to Cart</button>
+        </div>
+        <!-- Product 2 -->
+        <div class="product" data-id="2">
+            <img src="../static/bicycle2.jpg" alt="Product 2">
+            <h3>Flying 22-speed mountain bike</h3>
+            <div>
+                <label for="unit2">Price per:</label>
+                <select id="unit2" data-id="2" onchange="updateProductPrice(2)">
+                    <option value="hour">Hourly</option>
+                    <option value="day">Daily</option>
+                    <option value="month">Monthly</option>
+                </select>
+            </div><br>
+
+            <div>
+                <label for="quantity2">Time/Months:</label>
+                <input type="number" id="quantity2" value="1" min="1" onchange="updateProductPrice(2)">
+            </div>
+            <p id="price2">RS.25/hour</p>
+            <button class="add-to-cart" onclick="addToCart(2, 'Product 2', 70, 'hour')">Add to Cart</button>
+        </div>
+        <!-- product 3-->
+        <div class="product" data-id="3">
+            <img src="../static/bike1.jpg" alt="Product 3">
+            <h3>Yamaha R15 V3</h3>
+            <div>
+                <label for="unit3">Price per:</label>
+                <select id="unit3" data-id="3" onchange="updateProductPrice(3)">
+                    <option value="hour">Hourly</option>
+                    <option value="day">Daily</option>
+                    <option value="month">Monthly</option>
+                </select>
+            </div><br>
+            <div>
+                <label for="quantity3">Time/Months:</label>
+                <input type="number" id="quantity3" value="1" min="1" onchange="updateProductPrice(3)">
+            </div>
+            <p id="price3">RS.50/hour</p>
+            <button class="add-to-cart" onclick="addToCart(3, 'Product 3', 50, 'hour')">Add to Cart</button>
+        </div>
+        <!-- product 4-->
+        <div class="product" data-id="4">
+            <img src="../static/bike3.jpg" alt="Product 4">
+            <h3>TVS Ntorq 125</h3>
+            <div>
+                <label for="unit4">Price per:</label>
+                <select id="unit4" data-id="4" onchange="updateProductPrice(4)">
+                    <option value="hour">Hourly</option>
+                    <option value="day">Daily</option>
+                    <option value="month">Monthly</option>
+                </select>
+            </div><br>
+            <div>
+                <label for="quantity4">Time/Months:</label>
+                <input type="number" id="quantity4" value="1" min="1" onchange="updateProductPrice(4)">
+            </div>
+            <p id="price4">RS.25/hour</p>
+            <button class="add-to-cart" onclick="addToCart(4, 'Product 4', 15, 'hour')">Add to Cart</button>
+        </div>
+        <!--product 5-->
+        <div class="product" data-id="5">
+            <img src="../static/bike4.jpg" alt="Product 5">
+            <h3>Hover Heart</h3>
+            <div>
+                <label for="unit5">Price per:</label>
+                <select id="unit5" data-id="5" onchange="updateProductPrice(5)">
+                    <option value="hour">Hourly</option>
+                    <option value="day">Daily</option>
+                    <option value="month">Monthly</option>
+                </select>
+            </div><br>
+            <div>
+                <label for="quantity5">Time/Months:</label>
+                <input type="number" id="quantity5" value="1" min="1" onchange="updateProductPrice(5)">
+            </div>
+            <p id="price5">RS.45/hour</p>
+            <button class="add-to-cart" onclick="addToCart(5, 'Product 5', 15, 'hour')">Add to Cart</button>
+        </div>       
+        <!-- Product 6 -->
+        <div class="product" data-id="6">
+            <img src="../static/black honda.jpg" alt="Product 6">
+            <h3>Honda Unicorn</h3>
+            <div>
+                <label for="unit6">Price per:</label>
+                <select id="unit6" data-id="6" onchange="updateProductPrice(6)">
+                    <option value="hour">Hourly</option>
+                    <option value="day">Daily</option>
+                    <option value="month">Monthly</option>
+                </select>
+            </div><br>
+            <div>
+                <label for="quantity6">Time/Months:</label>
+                <input type="number" id="quantity6" value="1" min="1" onchange="updateProductPrice(6)">
+            </div>
+            <p id="price6">RS.35/hour</p>
+            <button class="add-to-cart" onclick="addToCart(6, 'Product 6', 10, 'hour')">Add to Cart</button>
+        </div>
+        <!-- Product 7 -->
+        <div class="product" data-id="7">
+            <img src="../static/bus.jpg" alt="Product 7">
+            <h3>Volvo BBR</h3>
+            <div>
+                <label for="unit7">Price per:</label>
+                <select id="unit7" data-id="7" onchange="updateProductPrice(7)">
+                    <option value="hour">Hourly</option>
+                    <option value="day">Daily</option>
+                    <option value="month">Monthly</option>
+                </select>
+            </div><br>
+            <div>
+                <label for="quantity7">Time/Months:</label>
+                <input type="number" id="quantity7" value="1" min="1" onchange="updateProductPrice(7)">
+            </div>
+            <p id="price1">RS.200/hour</p>
+            <button class="add-to-cart" onclick="addToCart(7, 'Product 7', 10, 'hour')">Add to Cart</button>
+        </div>
+
+        <!-- Product 8 -->
+        <div class="product" data-id="8">
+            <img src="../static/bus2.jpg" alt="Product 8">
+            <h3>Tata Leo</h3>
+            <div>
+                <label for="unit8">Price per:</label>
+                <select id="unit8" data-id="8" onchange="updateProductPrice(1)">
+                    <option value="hour">Hourly</option>
+                    <option value="day">Daily</option>
+                    <option value="month">Monthly</option>
+                </select>
+            </div><br>
+            <div>
+                <label for="quantity8">Time/Months:</label>
+                <input type="number" id="quantity8" value="1" min="1" onchange="updateProductPrice(8)">
+            </div>
+            <p id="price1">RS.150/hour</p>
+            <button class="add-to-cart" onclick="addToCart(8, 'Product 8', 10, 'hour')">Add to Cart</button>
+        </div>
+
+        <!-- Product 9-->
+        <div class="product" data-id="9">
+            <img src="../static/bus3.jpg" alt="Product 9">
+            <h3>volvo bus</h3>
+            <div>
+                <label for="unit9">Price per:</label>
+                <select id="unit9" data-id="9" onchange="updateProductPrice(9)">
+                    <option value="hour">Hourly</option>
+                    <option value="day">Daily</option>
+                    <option value="month">Monthly</option>
+                </select>
+            </div><br>
+            <div>
+                <label for="quantity9">Time/Months:</label>
+                <input type="number" id="quantity9" value="1" min="1" onchange="updateProductPrice(9)">
+            </div>
+            <p id="price1">RS.200/hour</p>
+            <button class="add-to-cart" onclick="addToCart(9, 'Product 9', 10, 'hour')">Add to Cart</button>
+        </div>
+
+        <!-- Product 10 -->
+        <div class="product" data-id="10">
+            <img src="../static/bus4.jpg" alt="Product 10">
+            <h3>Luxary volvo bus</h3>
+            <div>
+                <label for="unit10">Price per:</label>
+                <select id="unit10" data-id="10" onchange="updateProductPrice(10)">
+                    <option value="hour">Hourly</option>
+                    <option value="day">Daily</option>
+                    <option value="month">Monthly</option>
+                </select>
+            </div><br>
+            <div>
+                <label for="quantity10">Time/Months:</label>
+                <input type="number" id="quantity10" value="1" min="1" onchange="updateProductPrice(10)">
+            </div>
+            <p id="price1">RS.220/hour</p>
+            <button class="add-to-cart" onclick="addToCart(10, 'Product 10', 10, 'hour')">Add to Cart</button>
+        </div>
+
+
+        <!-- Product 11 -->
+        <div class="product" data-id="11">
+            <img src="../static/car1.jpg" alt="Product 11">
+            <h3>Land Range Rover</h3>
+            <div>
+                <label for="unit11">Price per:</label>
+                <select id="unit11" data-id="11" onchange="updateProductPrice(1)">
+                    <option value="hour">Hourly</option>
+                    <option value="day">Daily</option>
+                    <option value="month">Monthly</option>
+                </select>
+            </div><br>
+            <div>
+                <label for="quantity11">Time/Months:</label>
+                <input type="number" id="quantity11" value="1" min="1" onchange="updateProductPrice(11)">
+            </div>
+            <p id="price1">RS.70/hour</p>
+            <button class="add-to-cart" onclick="addToCart(11, 'Product 11', 10, 'hour')">Add to Cart</button>
+        </div>
+
+        <!-- Product 12 -->
+        <div class="product" data-id="12">
+            <img src="../static/car2.jpg" alt="Product 12">
+            <h3>Mercedes-Benz EQS</h3>
+            <div>
+                <label for="unit12">Price per:</label>
+                <select id="unit12" data-id="12" onchange="updateProductPrice(12)">
+                    <option value="hour">Hourly</option>
+                    <option value="day">Daily</option>
+                    <option value="month">Monthly</option>
+                </select>
+            </div><br>
+            <div>
+                <label for="quantity12">Time/Months:</label>
+                <input type="number" id="quantity12" value="1" min="1" onchange="updateProductPrice(12)">
+            </div>
+            <p id="price1">RS.90/hour</p>
+            <button class="add-to-cart" onclick="addToCart(12, 'Product 12', 10, 'hour')">Add to Cart</button>
+        </div>
+
+        <!-- Product 13 -->
+        <div class="product" data-id="13">
+            <img src="../static/car3.jpg" alt="Product 13">
+            <h3>Maruthi Suzuki Alto K10</h3>
+            <div>
+                <label for="unit13">Price per:</label>
+                <select id="unit13" data-id="13" onchange="updateProductPrice(13)">
+                    <option value="hour">Hourly</option>
+                    <option value="day">Daily</option>
+                    <option value="month">Monthly</option>
+                </select>
+            </div><br>
+            <div>
+                <label for="quantity13">Time/Months:</label>
+                <input type="number" id="quantity13" value="1" min="1" onchange="updateProductPrice(13)">
+            </div>
+            <p id="price1">RS.50/hour</p>
+            <button class="add-to-cart" onclick="addToCart(13, 'Product 13', 10, 'hour')">Add to Cart</button>
+        </div>
+
+        <!-- Product 14 -->
+        <div class="product" data-id="14">
+            <img src="../static/car4.jpg" alt="Product 14">
+            <h3>Mahindra Scorpio N</h3>
+            <div>
+                <label for="unit14">Price per:</label>
+                <select id="unit14" data-id="14" onchange="updateProductPrice(1)">
+                    <option value="hour">Hourly</option>
+                    <option value="day">Daily</option>
+                    <option value="month">Monthly</option>
+                </select>
+            </div><br>
+            <div>
+                <label for="quantity1">Time/Months:</label>
+                <input type="number" id="quantity14" value="1" min="1" onchange="updateProductPrice(14)">
+            </div>
+            <p id="price1">RS.50/hour</p>
+            <button class="add-to-cart" onclick="addToCart(14, 'Product 14', 10, 'hour')">Add to Cart</button>
+        </div>
+
+        <!-- Product 15 -->
+        <div class="product" data-id="15">
+            <img src="../static/car5.jpg" alt="Product 15">
+            <h3>Maruthi Suzuki Alto K10</h3>
+            <div>
+                <label for="unit15">Price per:</label>
+                <select id="unit15" data-id="15" onchange="updateProductPrice(15)">
+                    <option value="hour">Hourly</option>
+                    <option value="day">Daily</option>
+                    <option value="month">Monthly</option>
+                </select>
+            </div><br>
+            <div>
+                <label for="quantity15">Time/Months:</label>
+                <input type="number" id="quantity15" value="1" min="1" onchange="updateProductPrice(15)">
+            </div>
+            <p id="price1">RS.30/hour</p>
+            <button class="add-to-cart" onclick="addToCart(15, 'Product 15', 10, 'hour')">Add to Cart</button>
+        </div>
+
+        <!-- Product 16 -->
+        <div class="product" data-id="16">
+            <img src="../static/cy5.jpg" alt="Product 16">
+            <h3>Voltebyk Jagur</h3>
+            <div>
+                <label for="unit16">Price per:</label>
+                <select id="unit16" data-id="16" onchange="updateProductPrice(16)">
+                    <option value="hour">Hourly</option>
+                    <option value="day">Daily</option>
+                    <option value="month">Monthly</option>
+                </select>
+            </div><br>
+            <div>
+                <label for="quantity16">Time/Months:</label>
+                <input type="number" id="quantity16" value="1" min="1" onchange="updateProductPrice(16)">
+            </div>
+            <p id="price1">RS.22/hour</p>
+            <button class="add-to-cart" onclick="addToCart(16, 'Product 16', 10, 'hour')">Add to Cart</button>
+        </div>
+
+        <!-- Product 17 -->
+        <div class="product" data-id="17">
+            <img src="../static/cyc4.jpg" alt="Product 17">
+            <h3>Cosmic 26 Colors</h3>
+            <div>
+                <label for="unit17">Price per:</label>
+                <select id="unit17" data-id="17" onchange="updateProductPrice(17)">
+                    <option value="hour">Hourly</option>
+                    <option value="day">Daily</option>
+                    <option value="month">Monthly</option>
+                </select>
+            </div><br>
+            <div>
+                <label for="quantity17">Time/Months:</label>
+                <input type="number" id="quantity17" value="1" min="1" onchange="updateProductPrice(17)">
+            </div>
+            <p id="price1">RS.10/hour</p>
+            <button class="add-to-cart" onclick="addToCart(17, 'Product 17', 10, 'hour')">Add to Cart</button>
+        </div>
+
+        <!-- Product 18 -->
+        <div class="product" data-id="18">
+            <img src="../static/cycle1.jpg" alt="Product 18">
+            <h3>Flying 21-speed mountain bike</h3>
+            <div>
+                <label for="unit18">Price per:</label>
+                <select id="unit18" data-id="1" onchange="updateProductPrice(18)">
+                    <option value="hour">Hourly</option>
+                    <option value="day">Daily</option>
+                    <option value="month">Monthly</option>
+                </select>
+            </div><br>
+            <div>
+                <label for="quantity18">Time/Months:</label>
+                <input type="number" id="quantity18" value="1" min="1" onchange="updateProductPrice(18)">
+            </div>
+            <p id="price1">RS.22/hour</p>
+            <button class="add-to-cart" onclick="addToCart(18, 'Product 18', 10, 'hour')">Add to Cart</button>
+        </div>
+
+        <!-- Product 19 -->
+        <div class="product" data-id="19">
+            <img src="../static/cycle3.jpg" alt="Product 19">
+            <h3>BSA Ladybird Cindy</h3>
+            <div>
+                <label for="unit19">Price per:</label>
+                <select id="unit19" data-id="19" onchange="updateProductPrice(19)">
+                    <option value="hour">Hourly</option>
+                    <option value="day">Daily</option>
+                    <option value="month">Monthly</option>
+                </select>
+            </div><br>
+            <div>
+                <label for="quantity19">Time/Months:</label>
+                <input type="number" id="quantity19" value="1" min="1" onchange="updateProductPrice(19)">
+            </div>
+            <p id="price1">RS.15/hour</p>
+            <button class="add-to-cart" onclick="addToCart(19, 'Product 19', 10, 'hour')">Add to Cart</button>
+        </div>
+
+        <!-- Product 20 -->
+        <div class="product" data-id="20">
+            <img src="../static/jeep.jpg" alt="Product 20">
+            <h3>Jeep Wrangaler</h3>
+            <div>
+                <label for="unit20">Price per:</label>
+                <select id="unit20" data-id="20" onchange="updateProductPrice(20)">
+                    <option value="hour">Hourly</option>
+                    <option value="day">Daily</option>
+                    <option value="month">Monthly</option>
+                </select>
+            </div><br>
+            <div>
+                <label for="quantity20">Time/Months:</label>
+                <input type="number" id="quantity20" value="1" min="1" onchange="updateProductPrice(20)">
+            </div>
+            <p id="price1">RS.60/hour</p>
+            <button class="add-to-cart" onclick="addToCart(20, 'Product 20', 10, 'hour')">Add to Cart</button>
+        </div>
+
+        <!-- Product 21 -->
+        <div class="product" data-id="21">
+            <img src="../static/jeep2.jpg" alt="Product 21">
+            <h3>Mahindra Thar</h3>
+            <div>
+                <label for="unit21">Price per:</label>
+                <select id="unit21" data-id="21" onchange="updateProductPrice(21)">
+                    <option value="hour">Hourly</option>
+                    <option value="day">Daily</option>
+                    <option value="month">Monthly</option>
+                </select>
+            </div><br>
+            <div>
+                <label for="quantity21">Time/Months:</label>
+                <input type="number" id="quantity21" value="1" min="1" onchange="updateProductPrice(21)">
+            </div>
+            <p id="price1">RS.62/hour</p>
+            <button class="add-to-cart" onclick="addToCart(21, 'Product 21', 10, 'hour')">Add to Cart</button>
+        </div>
+
+        <!-- Product 22 -->
+        <div class="product" data-id="22">
+            <img src="../static/jeep3.jpg" alt="Product 22">
+            <h3>Wrangler black jeep</h3>
+            <div>
+                <label for="unit22">Price per:</label>
+                <select id="unit22" data-id="22" onchange="updateProductPrice(22)">
+                    <option value="hour">Hourly</option>
+                    <option value="day">Daily</option>
+                    <option value="month">Monthly</option>
+                </select>
+            </div><br>
+            <div>
+                <label for="quantity22">Time/Months:</label>
+                <input type="number" id="quantity22" value="1" min="1" onchange="updateProductPrice(22)">
+            </div>
+            <p id="price1">RS.65/hour</p>
+            <button class="add-to-cart" onclick="addToCart(22, 'Product 22', 10, 'hour')">Add to Cart</button>
+        </div>
+
+        <!-- Product 23 -->
+        <div class="product" data-id="23">
+            <img src="../static/jeep4.jpg" alt="Product 23">
+            <h3>Wrangler jeep</h3>
+            <div>
+                <label for="unit23">Price per:</label>
+                <select id="unit23" data-id="23" onchange="updateProductPrice(23)">
+                    <option value="hour">Hourly</option>
+                    <option value="day">Daily</option>
+                    <option value="month">Monthly</option>
+                </select>
+            </div><br>
+            <div>
+                <label for="quantity23">Time/Months:</label>
+                <input type="number" id="quantity23" value="1" min="1" onchange="updateProductPrice(23)">
+            </div>
+            <p id="price1">RS.63/hour</p>
+            <button class="add-to-cart" onclick="addToCart(23, 'Product 23', 10, 'hour')">Add to Cart</button>
+        </div>
+
+        <!-- Product 24 -->
+        <div class="product" data-id="24">
+            <img src="../static/ktm.jpg" alt="Product 24">
+            <h3>KTM 1290 Super Duke R
+                (The Beast)</h3>
+            <div>
+                <label for="unit24">Price per:</label>
+                <select id="unit24" data-id="24" onchange="updateProductPrice(24)">
+                    <option value="hour">Hourly</option>
+                    <option value="day">Daily</option>
+                    <option value="month">Monthly</option>
+                </select>
+            </div><br>
+            <div>
+                <label for="quantity24">Time/Months:</label>
+                <input type="number" id="quantity24" value="1" min="1" onchange="updateProductPrice(24)">
+            </div>
+            <p id="price1">RS.70/hour</p>
+            <button class="add-to-cart" onclick="addToCart(24, 'Product 24', 10, 'hour')">Add to Cart</button>
+        </div>
+
+        <!-- Product 25 -->
+        <div class="product" data-id="25">
+            <img src="../static/red truck.jpg" alt="Product 25">
+            <h3>Tata T.11</h3>
+            <div>
+                <label for="unit25">Price per:</label>
+                <select id="unit25" data-id="25" onchange="updateProductPrice(25)">
+                    <option value="hour">Hourly</option>
+                    <option value="day">Daily</option>
+                    <option value="month">Monthly</option>
+                </select>
+            </div><br>
+            <div>
+                <label for="quantity25">Time/Months:</label>
+                <input type="number" id="quantity25" value="1" min="1" onchange="updateProductPrice(25)">
+            </div>
+            <p id="price1">RS.100/hour</p>
+            <button class="add-to-cart" onclick="addToCart(25, 'Product 25', 10, 'hour')">Add to Cart</button>
+        </div>
+
+        <!-- Product 26 -->
+        <div class="product" data-id="26">
+            <img src="../static/royal.jpg" alt="Product 26">
+            <h3>Royal Enfield Hunter 350</h3>
+            <div>
+                <label for="unit26">Price per:</label>
+                <select id="unit26" data-id="26" onchange="updateProductPrice(26)">
+                    <option value="hour">Hourly</option>
+                    <option value="day">Daily</option>
+                    <option value="month">Monthly</option>
+                </select>
+            </div><br>
+            <div>
+                <label for="quantity26">Time/Months:</label>
+                <input type="number" id="quantity26" value="1" min="1" onchange="updateProductPrice(26)">
+            </div>
+            <p id="price1">RS.80/hour</p>
+            <button class="add-to-cart" onclick="addToCart(26, 'Product 26', 10, 'hour')">Add to Cart</button>
+        </div>
+
+        <!-- Product 27 -->
+        <div class="product" data-id="27">
+            <img src="../static/scooty.jpg" alt="Product 27">
+            <h3>TVS Jupiter</h3>
+            <div>
+                <label for="unit27">Price per:</label>
+                <select id="unit27" data-id="27" onchange="updateProductPrice(27)">
+                    <option value="hour">Hourly</option>
+                    <option value="day">Daily</option>
+                    <option value="month">Monthly</option>
+                </select>
+            </div><br>
+            <div>
+                <label for="quantity27">Time/Months:</label>
+                <input type="number" id="quantity27" value="1" min="1" onchange="updateProductPrice(27)">
+            </div>
+            <p id="price1">RS.40/hour</p>
+            <button class="add-to-cart" onclick="addToCart(27, 'Product 27', 10, 'hour')">Add to Cart</button>
+        </div>
+
+        <!-- Product 28 -->
+        <div class="product" data-id="28">
+            <img src="../static/scooty1.jpg" alt="Product 28">
+            <h3>TVS Jupiter BS6</h3>
+            <div>
+                <label for="unit28">Price per:</label>
+                <select id="unit28" data-id="28" onchange="updateProductPrice(28)">
+                    <option value="hour">Hourly</option>
+                    <option value="day">Daily</option>
+                    <option value="month">Monthly</option>
+                </select>
+            </div><br>
+            <div>
+                <label for="quantity28">Time/Months:</label>
+                <input type="number" id="quantity28" value="1" min="1" onchange="updateProductPrice(28)">
+            </div>
+            <p id="price1">RS.35/hour</p>
+            <button class="add-to-cart" onclick="addToCart(28, 'Product 28', 10, 'hour')">Add to Cart</button>
+        </div>
+
+        <!-- Product 29 -->
+        <div class="product" data-id="29">
+            <img src="../static/ta3.jpg" alt="Product 29">
+            <h3>Holland 3032 NX</h3>
+            <div>
+                <label for="unit29">Price per:</label>
+                <select id="unit29" data-id="29" onchange="updateProductPrice(29)">
+                    <option value="hour">Hourly</option>
+                    <option value="day">Daily</option>
+                    <option value="month">Monthly</option>
+                </select>
+            </div><br>
+            <div>
+                <label for="quantity29">Time/Months:</label>
+                <input type="number" id="quantity29" value="1" min="1" onchange="updateProductPrice(29)">
+            </div>
+            <p id="price1">RS.80/hour</p>
+            <button class="add-to-cart" onclick="addToCart(29, 'Product 29', 10, 'hour')">Add to Cart</button>
+        </div>
+
+        <!-- Product 30 -->
+        <div class="product" data-id="30">
+            <img src="../static/trac2.jpg" alt="Product 30">
+            <h3>Mahindra 275 DI TU Sp</h3>
+            <div>
+                <label for="unit30">Price per:</label>
+                <select id="unit30" data-id="30" onchange="updateProductPrice(30)">
+                    <option value="hour">Hourly</option>
+                    <option value="day">Daily</option>
+                    <option value="month">Monthly</option>
+                </select>
+            </div><br>
+            <div>
+                <label for="quantity30">Time/Months:</label>
+                <input type="number" id="quantity30" value="1" min="1" onchange="updateProductPrice(30)">
+            </div>
+            <p id="price1">RS.70/hour</p>
+            <button class="add-to-cart" onclick="addToCart(30, 'Product 30', 10, 'hour')">Add to Cart</button>
+        </div>
+
+        <!-- Product 31 -->
+        <div class="product" data-id="31">
+            <img src="../static/tractor.jpg" alt="Product 31">
+            <h3>John Deere 5050D</h3>
+            <div>
+                <label for="unit31">Price per:</label>
+                <select id="unit31" data-id="31" onchange="updateProductPrice(31)">
+                    <option value="hour">Hourly</option>
+                    <option value="day">Daily</option>
+                    <option value="month">Monthly</option>
+                </select>
+            </div><br>
+            <div>
+                <label for="quantity31">Time/Months:</label>
+                <input type="number" id="quantity31" value="1" min="1" onchange="updateProductPrice(31)">
+            </div>
+            <p id="price1">RS.120/hour</p>
+            <button class="add-to-cart" onclick="addToCart(31, 'Product 31', 10, 'hour')">Add to Cart</button>
+        </div>
+
+        <!-- Product 32 -->
+        <div class="product" data-id="32">
+            <img src="../static/truck1.jpg" alt="Product 32">
+            <h3>Ford Maverick</h3>
+            <div>
+                <label for="unit32">Price per:</label>
+                <select id="unit32" data-id="32" onchange="updateProductPrice(32)">
+                    <option value="hour">Hourly</option>
+                    <option value="day">Daily</option>
+                    <option value="month">Monthly</option>
+                </select>
+            </div><br>
+            <div>
+                <label for="quantity32">Time/Months:</label>
+                <input type="number" id="quantity32" value="1" min="1" onchange="updateProductPrice(32)">
+            </div>
+            <p id="price1">RS.100/hour</p>
+            <button class="add-to-cart" onclick="addToCart(32, 'Product 32', 10, 'hour')">Add to Cart</button>
+        </div>
+
+        <!-- Product 33 -->
+        <div class="product" data-id="33">
+            <img src="../static/truck2.jpg" alt="Product 33">
+            <h3>volvo FMX Truck</h3>
+            <div>
+                <label for="unit33">Price per:</label>
+                <select id="unit33" data-id="33" onchange="updateProductPrice(33)">
+                    <option value="hour">Hourly</option>
+                    <option value="day">Daily</option>
+                    <option value="month">Monthly</option>
+                </select>
+            </div><br>
+            <div>
+                <label for="quantity33">Time/Months:</label>
+                <input type="number" id="quantity33" value="1" min="1" onchange="updateProductPrice(33)">
+            </div>
+            <p id="price1">RS.150/hour</p>
+            <button class="add-to-cart" onclick="addToCart(33, 'Product 33', 10, 'hour')">Add to Cart</button>
+        </div>
+
+        <!-- Product 34 -->
+        <div class="product" data-id="34">
+            <img src="../static/truck4.jpg" alt="Product 34">
+            <h3>Mahendra van</h3>
+            <div>
+                <label for="unit34">Price per:</label>
+                <select id="unit34" data-id="34" onchange="updateProductPrice(34)">
+                    <option value="hour">Hourly</option>
+                    <option value="day">Daily</option>
+                    <option value="month">Monthly</option>
+                </select>
+            </div><br>
+            <div>
+                <label for="quantity34">Time/Months:</label>
+                <input type="number" id="quantity34" value="1" min="1" onchange="updateProductPrice(34)">
+            </div>
+            <p id="price1">RS.70/hour</p>
+            <button class="add-to-cart" onclick="addToCart(34, 'Product 34', 10, 'hour')">Add to Cart</button>
+        </div>
+
+        <!-- Product 35 -->
+        <div class="product" data-id="35">
+            <img src="../static/van1.jpg" alt="Product 35">
+            <h3>Tata Ace</h3>
+            <div>
+                <label for="unit35">Price per:</label>
+                <select id="unit35" data-id="35" onchange="updateProductPrice(35)">
+                    <option value="hour">Hourly</option>
+                    <option value="day">Daily</option>
+                    <option value="month">Monthly</option>
+                </select>
+            </div><br>
+            <div>
+                <label for="quantity35">Time/Months:</label>
+                <input type="number" id="quantity35" value="1" min="1" onchange="updateProductPrice(35)">
+            </div>
+            <p id="price1">RS.100/hour</p>
+            <button class="add-to-cart" onclick="addToCart(35, 'Product 35', 10, 'hour')">Add to Cart</button>
+        </div>
+
+        <!-- Product 36 -->
+        <div class="product" data-id="36">
+            <img src="../static/van2.jpg" alt="Product 36">
+            <h3>Ford Transit.</h3>
+            <div>
+                <label for="unit36">Price per:</label>
+                <select id="unit36" data-id="36" onchange="updateProductPrice(36)">
+                    <option value="hour">Hourly</option>
+                    <option value="day">Daily</option>
+                    <option value="month">Monthly</option>
+                </select>
+            </div><br>
+            <div>
+                <label for="quantity36">Time/Months:</label>
+                <input type="number" id="quantity36" value="1" min="1" onchange="updateProductPrice(36)">
+            </div>
+            <p id="price1">RS.90/hour</p>
+            <button class="add-to-cart" onclick="addToCart(36, 'Product 36', 10, 'hour')">Add to Cart</button>
+        </div>
+
+        <!-- Product 37 -->
+        <div class="product" data-id="37">
+            <img src="../static/van3.jpg" alt="Product 37">
+            <h3>Tata mini van</h3>
+            <div>
+                <label for="unit37">Price per:</label>
+                <select id="unit37" data-id="37" onchange="updateProductPrice(37)">
+                    <option value="hour">Hourly</option>
+                    <option value="day">Daily</option>
+                    <option value="month">Monthly</option>
+                </select>
+            </div><br>
+            <div>
+                <label for="quantity1">Time/Months:</label>
+                <input type="number" id="quantity37" value="1" min="1" onchange="updateProductPrice(37)">
+            </div>
+            <p id="price1">RS.60/hour</p>
+            <button class="add-to-cart" onclick="addToCart(37, 'Product 37', 10, 'hour')">Add to Cart</button>
+        </div>
+
+        <!-- Product 38 -->
+        <div class="product" data-id="38">
+            <img src="../static/van4.jpg" alt="Product 38">
+            <h3>Maruthi Suzuki Omni van</h3>
+            <div>
+                <label for="unit38">Price per:</label>
+                <select id="unit38" data-id="38" onchange="updateProductPrice(38)">
+                    <option value="hour">Hourly</option>
+                    <option value="day">Daily</option>
+                    <option value="month">Monthly</option>
+                </select>
+            </div><br>
+            <div>
+                <label for="quantity38">Time/Months:</label>
+                <input type="number" id="quantity38" value="1" min="1" onchange="updateProductPrice(38)">
+            </div>
+            <p id="price1">RS.60/hour</p>
+            <button class="add-to-cart" onclick="addToCart(38, 'Product 38', 10, 'hour')">Add to Cart</button>
+        </div>
+
+
+    </div>
+
+    <script src="{% static 'cart.js'%}"></script>
+</body>
+</html>

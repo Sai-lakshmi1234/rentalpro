@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static 'home.css'%}">
+
+</head>
+<body>
+    <div class="background-slider">
+        <div class="slides">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGUw-oeZlJF2ymAdUqsUaqxvgyjb4pA-4L4g&s" alt="Slide 1">
+            <img src="https://www.91tractors.com/_next/image?url=https%3A%2F%2Fimages.91trucks.com%2Fwp-content%2Fuploads%2F2024%2F10%2FUntitled-design-6-4.png&w=640&q=75" alt="Slide 2">
+            <img src="https://platform.cstatic-images.com/large/in/v2/stock_photos/4b03e7b1-2cb9-4866-a516-bc3e13f90d95/0e05c0cb-9dde-4a8a-ac8d-1c853762a520.png" alt="Slide 3">
+            <img src="../static/bike4.jpg" alt="Slide 4">
+            <img src="https://vinfastauto.us/themes/custom/vinfast_v2/images/v3/homepage/VF7-car.webp" alt="Slide 5">
+        </div>
+    </div>
+    <div class="menu">
+        <a href="{% url 'myapp:home'%}">Home</a>
+        <a href="{% url 'myapp:about'%}">About</a>
+        <a href="{% url 'myapp:services'%}">Services</a>
+        <a href="{% url 'myapp:contact'%}">Contact</a>
+        <a href="{% url 'myapp:bookings'%}">Bookings</a>
+    </div>
+
+    <div class="content">
+        <div>
+            <h1>Welcome to My Website</h1>
+            <p> </p>
+        </div>
+    </div>
+</body>
+</html>

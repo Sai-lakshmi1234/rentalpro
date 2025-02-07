@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services</title>
+    <link rel="stylesheet" href="{% static 'services.css'%}">
+    <script src="{% static 'services.js' %}"></script>
+</head>
+<body>
+    <!-- Navigation bar -->
+    <nav>
+        <div class="menu">
+            <a href="{% url 'myapp:home' %}">Home</a>
+            <a href="{% url 'myapp:about' %}">About</a>
+            <a href="{% url 'myapp:services' %}">Services</a>
+            <a href="{% url 'myapp:contact' %}">Contact</a>
+            <a href="{% url 'myapp:bookings' %}">Bookings</a>
+        </div>
+    </nav>
+    <!-- Search bar and Category Filter -->
+    <div class="filter-container">
+        <input type="text" id="search-bar" placeholder="Search..." oninput="filterImages()">
+        <select id="category-select" onchange="filterImages()">
+            <option value="all">All Categories</option>
+            <option value="cycle">Cycle</option>
+            <option value="car">Car</option>
+            <option value="bike">Bike</option>
+            <option value="van">Van</option>
+            <option value="jeep">Jeep</option>
+            <option value="bus">Bus</option>
+            <option value="truck">Truck</option>
+            <option value="tractor">Tractor</option>
+
+
+
+        </select>            
+
+    </div>
+
+    <!-- Main content -->
+    <main>
+        <div class="cards-container" id="cards-container">
+            <!-- Card 1 -->
+            <div class="card" data-category="car">
+                <img src="../static/car1.jpg" alt="Car 1">
+                <div class="overlay">
+                    <h3>Land Range Rover</h3>
+                    <p>It is an unparalled off-road capability</p>
+                    <div class="read-more-content">
+                        <p>It is a <span style="color:red;">5 seater</span> acheives a smooth,relaxing drive by adjusting its height through the <span style="color:red;">Electronic Air Suspension.</span></p>
+                    </div>
+                    <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card" data-category="van">
+                <img src="../static/van1.jpg" alt="Van 1">
+                <div class="overlay">
+                    <h3>Tata Ace</h3>
+                    <p>Versatility and affordability.</p>
+                    <div class="read-more-content">
+                        <p><span style="color: red;"> Millege-22kmpl,</span> <br>Payload capacity:710 kg<br>Multiple fuel options:Diesel,Petrol,CNG,Bi-fuel</p>
+                    </div>
+                    <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card" data-category="bike">
+                <img src="../static/bike1.jpg" alt="Placeholder 1">
+                <div class="overlay">
+                    <h3>Yamaha R15 V3</h3>
+                    <p>Consists VVA(Variable Valave Actuation).</p>
+                    <div class="read-more-content">
+                        <p>Millege:Aprrox 40-45 km/l,Engine:155cc,liquid-cooled,Power:18.6 PS@10,000RPM</p>
+                    </div>
+                    <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="card" data-category="bike">
+                <img src="../static/royal.jpg" alt="Placeholder 2">
+                <div class="overlay">
+                    <h3>Royal Enfield Hunter 350</h3>
+                    <p> Classic Styling and modern Features.</p>
+                    <div class="read-more-content">
+                        <p>Millege:36.2 <br>Engine:349.349.3cc,air-cooled <br>power:20.2bhp@6100 rpm</p>
+                    </div>
+                    <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+                </div>
+            </div>
+            <!--card-5 -->
+
+            <div class="card" data-category="bike">
+                <img src="../static/ktm.jpg" alt="Placeholder 2">
+                <div class="overlay">
+                    <h3>KTM 1290 Super Duke R <br>(The Beast)</h3>
+                    <p>Boasts a range exhausted feautres</p>
+                    <div class="read-more-content">
+                        <p> Millege 17.54 kmpl <br>speed:180 miles perhour(289 kilometres) <br>Engine:132 kilowatts(180 horsepower).</p>
+                    </div>
+                    <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+                </div>
+            </div>
+            <!--card-6-->
+            <div class="card" data-category="bike">
+                <img src="../static/black honda.jpg" alt="Placeholder 2">
+                <div class="overlay">
+                    <h3>Honda Unicorn</h3>
+                    <p>The gear shifter is easy to use and seat comfortable.</p>
+                    <div class="read-more-content">
+                        <p>This placeholder card demonstrates the functionality of a collapsible "Read More" section. Feel free to customize the content.</p>
+                    </div>
+                    <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+                </div>
+            </div>
+            <!--card-7-->
+            <div class="card" data-category="bike">
+                <img src="../static/scooty.jpg" alt="Placeholder 2">
+                <div class="overlay">
+                    <h3>TVS Jupiter  </h3>
+                    <p>Automatic trasmission for smooth rides,combining breaking system</p>
+                    <div class="read-more-content">
+                        <p>Millege:53.84kmpl <br> Max power:7.91 bhp@6500rpm <br>
+                        Speed:82kmph</p>
+                    </div>
+                    <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+                </div>
+            </div>
+            <!--card 8-->
+            <div class="card" data-category="bike">
+                <img src="../static/scooty1.jpg" alt="Placeholder 2">
+                <div class="overlay">
+                    <h3>TVS Jupiter BS6</h3>
+                    <p>Continuosly Variable Trasmission(CVT),ensuring smooth and seamless gear shifts .</p>
+                    <div class="read-more-content">
+                        <p>Millege-ARAI.53.84 <br> power:7.91 <br> Riding Range:275 kmph</p>
+                    </div>
+                    <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+                </div>
+            </div>
+            <!--card 9-->
+            <div class="card" data-category="bike">
+                <img src="../static/bike3.jpg" alt="Placeholder 2">
+                <div class="overlay">
+                    <h3>TVS Ntorq 125 </h3>
+                    <p>Low Oil Indicator,Call/SMS alerts,GPS Navigation.</p>
+                    <div class="read-more-content">
+                        <p>This placeholder card demonstrates the functionality of a collapsible "Read More" section. Feel free to customize the content.</p>
+                    </div>
+                    <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+                </div>
+            </div>
+            <!--card 10-->
+            <div class="card" data-category="car">
+                <img src="../static/car2.jpg" alt="Placeholder 2">
+                <div class="overlay">
+                    <h3>Mercedes-Benz EQS</h3>
+                    <p>Exculsive leather upholstery,keyless start.</p>
+                    <div class="read-more-content">
+                        <p>Range:857 km per full charge <br> Battery:1078.8kwh <br> EQS 450+:$104,00.</p>
+                    </div>
+                    <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+                </div>
+            </div>
+            <!--card 11-->
+            <div class="card" data-category="car">
+                <img src="../static/car3.jpg" alt="Placeholder 2" class ='card11'>
+                <div class="overlay">
+                    <h3>Maruthi Suzuki Alto K10 </h3>
+                    <p>Dual front aitbags <br> ABS with EBD <br> Manually adjustable ORVMS.</p>
+                    <div class="read-more-content">
+                        <p>Millege:10.62 kmpl <br> Engine:998cc <br> Max Torque(Nm@rpm).</p>
+                    </div>
+                    <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+                </div>
+            </div>
+            <!--card 12-->
+            <div class="card" data-category="car">
+                <img src="../static/car4.jpg" alt="Placeholder 2">
+                <div class="overlay">
+                    <h3>Mahindra Scorpio N </h3>
+                    <p>It is a popular SUV in India.</p>
+                    <div class="read-more-content">
+                        <p> 130bhp and 300 Nm of torque and 175 bhp and 400 Nm of torque. <br> Millege:12.70 .</p>
+                    </div>
+                    <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+                </div>
+            </div>
+            <!--card 12-->
+            <div class="card" data-category="car">
+                <img src="../static/car5.jpg" alt="Placeholder 2">
+                <div class="overlay">
+                    <h3>Maruthi Suzuki Alto K10</h3>
+                    <p>Dual front aitbags <br> ABS with EBD <br> Manually adjustable ORVMS.</p>
+                    <div class="read-more-content">
+                        <p>Millege:10.62 kmpl <br> Engine:998cc <br> Max Torque(Nm@rpm).</p>
+                    </div>
+                    <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+                </div>
+            </div>
+            <!--card 13-->
+            <div class="card" data-category="cycle">
+                <img src="../static/cycle1.jpg" alt="Placeholder 2">
+                <div class="overlay">
+                    <h3>Flying 21-speed mountain bike</h3>
+                    <p>It has disc brakes.</p>
+                    <div class="read-more-content">
+                        <p>Strong lightwight aluminium alloy frame.frae isze 17 <br> 21-speed gears <br> EF500 brake/Shift .</p>
+                    </div>
+                    <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+                </div>
+            </div>
+            <!--card 14-->
+            <div class="card" data-category="cycle">
+                <img src="../static/bicycle2.jpg" alt="Placeholder 2">
+                <div class="overlay">
+                    <h3>Flying 22-speed mountain bike</h3>
+                    <p>It has disc brakes.</p>
+                    <div class="read-more-content">
+                        <p>Strong lightwight aluminium alloy frame.frae isze 17 <br> 21-speed gears <br> EF500 brake/Shift.</p>
+                    </div>
+                    <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+                </div>
+            </div>
+            <!--card 15-->
+            <div class="card" data-category="cycle">
+                <img src="../static/cycle3.jpg" alt="Placeholder 2">
+                <div class="overlay">
+                    <h3>BSA Ladybird Cindy</h3>
+                    <p>A popular brand among women and girls.</p>
+                    <div class="read-more-content">
+                        <p>Erogonice design tailored for female riders ensures comfort. <br>
+                            Verstaile usage for commuting or leisurly riides. <br>
+                            Light Weight construction enhances manoeuvrability.</p>
+                    </div>
+                    <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+                </div>
+            </div>
+            <!--card 16-->
+            <div class="card" data-category="Bike">
+                <img src="../static/av.jpg" alt="Placeholder 2">
+                <div class="overlay">
+                    <h3>Avantura Choppers Pravega</h3>
+                    <p>The rear sports a bigger 250 mm tyre;both sourced by Avon.</p>
+                    <div class="read-more-content">
+                        <p>2025ccV-twin engine <br> 6-speed trasmission <br>High power output <br>
+                            it weighs 347 kg and gets a large 21-litre fule tank..</p>
+                    </div>
+                    <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+                </div>
+            </div>
+            <!--card 17-->
+            <div class="card" data-category="Bike">
+                <img src="../static/bike4.jpg" alt="Placeholder 2">
+                <div class="overlay">
+                    <h3>Hover Heart</h3>
+                    <p>Gas Mini chopper Bike,DB004 Model 49.4 CC 2 Stroke Dirt Bike.</p>
+                    <div class="read-more-content">
+                        <p>Metal frame and rear Disc brakes, Big Headlight,Premium Tire. <br> It supports a maximum load of 165 lbs and can reach speeds up to 20mph.</p>
+                    </div>
+                    <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+                </div>
+            </div>
+            <!--card 18-->
+            <div class="card" data-category="cycle">
+                <img src="../static/cyc4.jpg" alt="Placeholder 2">
+                <div class="overlay">
+                    <h3>Cosmic 26 Colors </h3>
+                    <p>Integrated with the frame for carrying items.</p>
+                    <div class="read-more-content">
+                        <p>No.of speed/gears:Single <br> Frame size:18 inch <br> Frame Material:Steel <br>Wheels:Single wall alloy,36h. <br> Tires Wanda:26 X 1.75 inches</p>
+                    </div>
+                    <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+                </div>
+            </div>
+            <!--card 18-->
+            <div class="card" data-category="cycle">
+                <img src="../static/cy5.jpg" alt="Placeholder 2">
+                <div class="overlay">
+                    <h3>Voltebyk Jagur</h3>
+                    <p> Key Protected IP65 Water Resistant Smooth Front Suspension+ more feautres.</p>
+                    <div class="read-more-content">
+                        <p>Range upto 35 kms speed upto 25+ kmph. <br> GearsarsSensor Brakes 36V,7.5Ah <br> Power 250W BLDC MotorBuilt-in Light.</p>
+                    </div>
+                    <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+                </div>
+            </div>
+            <!--card 19-->
+            <div class="card" data-category="truck">
+                <img src="../static/truck1.jpg" alt="Placeholder 2">
+                <div class="overlay">
+                    <h3> Ford Maverick</h3>
+                    <p>The Maverick sports a bold,contempary design with distinctive LED headlights.</p>
+                    <div class="read-more-content">
+                        <p>The Maverick comes equipped with 2.5L hybrid engine paired.
+                            <br> Available Engine:2.0L</p>
+                    </div>
+                    <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+                </div>
+            </div>
+            <!--card20-->
+            <div class="card" data-category="truck">
+                <img src="../static/red truck.jpg" alt="Placeholder 2">
+                <div class="overlay">
+                    <h3>Tata T.11</h3>
+                    <p>Designed for Efficiency ,Comfort,and Performance.</p>
+                    <div class="read-more-content">
+                        <p>Engine :3.3L,4-cyclinder BS6 engine <br> Power : 155Hp @ 2600RPM. <br> Fule Tank Capacity:160 litres</p>
+                    </div>
+                    <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+                </div>
+            </div>
+            <!--card 21-->
+            <div class="card" data-category="jeep">
+                <img src="../static/jeep.jpg" alt="Placeholder 2">
+                <div class="overlay">
+                    <h3>Jeep Wrangaler</h3>
+                    <p>A formidable off-roader while also offering modern comforts.</p>
+                    <div class="read-more-content">
+                        <p> Dana 44 HD full-float solid rear axle <br> Rock-Trac part-time case with $:1 low range.</p>
+                    </div>
+                    <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+                </div>
+            </div>
+            <!--card 22-->
+            <div class="card" data-category="jeep">
+                <img src="../static/jeep2.jpg" alt="Placeholder 2">
+                <div class="overlay">
+                    <h3>Mahindra Thar</h3>
+                    <p>Patronage among those who are upwardly mobile both finanaciallly and socially.</p>
+                    <div class="read-more-content">
+                        <p>It contains the Power Steering <br> Anti-lock Bearing Sysyem(ABS) <br> Passenger Air Bag,Driver Air Bag.</p>
+                    </div>
+                    <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+                </div>
+            </div>
+            <!--card 23-->
+            <div class="card" data-category="tractor">
+                <img src="../static/trac2.jpg" alt="Placeholder 2">
+                <div class="overlay">
+                    <h3>Mahindra 275 DI TU Sp</h3>
+                    <p>Dual-acting power steering and partail constant mesh trasmission.</p>
+                    <div class="read-more-content">
+                        <p> 39HP(29.1KW) engine with 3 cylinders <br> 2760cc engine capacity <br> water cooling system <br> 47-liter fuel tank <br> power:34HP PTO Power.</p>
+                    </div>
+                    <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+                </div>
+            </div>
+            <!--card 24-->
+            <div class="card" data-category="tractor">
+                <img src="../static/tractor.jpg" alt="Placeholder 2">
+                <div class="overlay">
+                    <h3>John Deere 5050D</h3>
+                    <p>Available in 2WD and 4WD and coolar shift gearbox.</p>
+                    <div class="read-more-content">
+                        <p>50HP(36.9KW)Engine. <br> 2100RPM. <br> 3 Cyclinders. <br> Piston cooling jet</p>
+                    </div>
+                    <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+                </div>
+            </div>
+            <!--card 25-->
+            <div class="card" data-category="tractor">
+                <img src="../static/ta3.jpg" alt="Placeholder 2">
+                <div class="overlay">
+                    <h3>Holland 3032 NX </h3>
+                    <p>Automatic depth and draft control <br> 1500 Kg lift capacity.</p>
+                    <div class="read-more-content">
+                        <p>35 Hp engine <br> 2365 cc engine capacity <br>2000 RPM <br> 34 HP PTO Power <br> Road speed :33.06 km/h.</p>
+                    </div>
+                    <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+                </div>
+            </div>
+            <!--card 26-->
+            <div class="card" data-category="bus">
+                <img src="../static/bus.jpg" alt="Placeholder 2">
+                <div class="overlay">
+                    <h3>Volvo BBR</h3>
+                    <p>The BBR can be adapted to various applications,Reducing driver Fatigue.</p>
+                    <div class="read-more-content">
+                        <p>Power:330hp@2200rpm <br>Engine:D8K6300 <br>GVW :1800 <br> Seats:43 seats w/o c/s + RHS Rear Emergency Door.</p>
+                    </div>
+                    <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+                </div>
+            </div>
+            <!--card 27-->
+            <div class="card" data-category="bus">
+                <img src="../static/bus2.jpg" alt="Placeholder 2">
+                <div class="overlay">
+                    <h3>Tata Leo</h3>
+                    <p>Anti-lock braking sysyem(ABS) with Electronic Brakeforce Distribution(EBD).</p>
+                    <div class="read-more-content">
+                        <p>18-seater consists in the bus with A/c and NON A/c. <br> Power:73.5 kW @ 3750 r/min; <br> Torquee 200Nm @ 1000-3500 r/min</p>
+                    </div>
+                    <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+                </div>
+            </div>
+            <div class="card" data-category="bus">
+                <img src="../static/bus3.jpg" alt="Placeholder 2">
+                <div class="overlay">
+                    <h3>volvo bus</h3>
+                    <p>Superior choice of materials, finely crafted details and trim, comfortable seats.</p>
+                    <div class="read-more-content">
+                        <p>Excellent comfort, low noise and perfect climate. The coach is available in both sleeper and seater variants.</p>
+                    </div>
+                    <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+                </div>
+            </div>
+            <div class="card" data-category="bus">
+                <img src="../static/bus4.jpg" alt="Placeholder 2">
+                <div class="overlay">
+                    <h3>Luxary volvo bus</h3>
+                    <p> Superior choice of materials, finely crafted details and trim, comfortable seats.</p>
+                    <div class="read-more-content">
+                        <p>Excellent comfort, low noise and perfect climate. The coach is available in both sleeper and seater variants.</p>
+                    </div>
+                    <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+                </div>
+            </div>
+            <div class="card" data-category="truck">
+                <img src="../static/truck2.jpg" alt="Placeholder 2">
+                <div class="overlay">
+                    <h3>volvo FMX Truck</h3>
+                    <p>Electric or diesel powertrains, a driven front axle.</p>
+                    <div class="read-more-content">
+                        <p>generous ground clearance and axles to carry heavy loads.</p>
+                    </div>
+                    <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+                </div>
+            </div>
+            <div class="card" data-category="truck">
+                <img src="../static/truck4.jpg" alt="Placeholder 2">
+                <div class="overlay">
+                    <h3>Mahendra van</h3>
+                    <p>Diesel engines, fuel efficiency, and cargo space. safety features and manual steering systems. </p>
+                    <div class="read-more-content">
+                        <p>engine capacity of 909 CC and delivers a maximum speed of 95 KMPH. Mahindra Supro Van mileage is 19.59 KMPL.</p>
+                    </div>
+                    <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+                </div>
+            </div>
+            <div class="card" data-category="van">
+                <img src="../static/van2.jpg" alt="Placeholder 2">
+                <div class="overlay">
+                    <h3>Ford Transit.</h3>
+                    <p>Customize your van including door options to meet your business needs.</p>
+                    <div class="read-more-content">
+                        <p>Maximize traction and enhance handling.</p>
+                    </div>
+                    <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+                </div>
+            </div>
+            <div class="card" data-category="van">
+                <img src="../static/van3.jpg" alt="Placeholder 2">
+                <div class="overlay">
+                    <h3>Tata mini van</h3>
+                    <p>Tata Venture is a 7 seater Minivan.</p>
+                    <div class="read-more-content">
+                        <p>Venture include a ground clearance of 160 mm. and The Venture is available in 13 colours. Tata Venture mileage is 15.42 kmpl.</p>
+                    </div>
+                    <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+                </div>
+            </div>
+            <div class="card" data-category="van">
+                <img src="../static/van4.jpg" alt="Placeholder 2">
+                <div class="overlay">
+                    <h3>Maruthi Suzuki Omni van</h3>
+                    <p> versatile and compact van and affordability and practicality.</p>
+                    <div class="read-more-content">
+                    </div>
+                    <p> It's available in various seating configurations and has been a favorite for both personal and commercial use.</p>
+                    <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+                </div>
+            </div>
+            <div class="card" data-category="jeep">
+                <img src="../static/jeep3.jpg" alt="Placeholder 2">
+                <div class="overlay">
+                    <h3>Wrangler black jeep </h3>
+                    <p>Incredibly capable off-roader with a robust build .</p>
+                    <div class="read-more-content">
+                        <p>It has a spacious cabin with lots of tech and features including ADAS functionality.</p>
+                    </div>
+                    <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+                </div>
+            </div>
+            <div class="card" data-category="jeep">
+                <img src="../static/jeep4.jpg" alt="Placeholder 2">
+                <div class="overlay">
+                    <h3>Wrangler jeep</h3>
+                    <p>incredibly capable off-roader with a robust build .</p>
+                    <div class="read-more-content">
+                        <p> </p>
+                    </div>
+                    <p> It has a spacious cabin with lots of tech and features including ADAS functionality. </p>
+                    <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+                </div>
+            </div>
+            
+            
+            
+            
+            
+            
+            
+        </div>
+    </main>
+</body>
+</html>

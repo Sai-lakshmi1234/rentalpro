@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+    <link rel="stylesheet" href="{% static 'cart.css' %}">
+</head>
+<body>
+    <h1>Shopping Cart</h1>
+    <div id="cart-items"></div>
+    <div id="total-price"></div>
+    <button id="pay-button" onclick="window.location.href=/bookings/">Continue Shopping</button>
+
+
+    <!-- Pay Button to redirect to payment options -->
+    <button id="pay-button" onclick="window.location.href=/payment/">Proceed to Pay</button>
+
+    <script src="{% static 'cart.js' %}"></script>
+</body>
+</html>

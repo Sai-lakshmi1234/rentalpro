@@ -1,0 +1,137 @@
+/* General Styles for Cart */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background:#ffecc9 no-repeat center center fixed;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+h1 {
+    font-size: 32px;
+    margin: 40px 0;
+    color: #333;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Cart Items Container */
+#cart-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 15px;
+    padding: 20px;
+}
+
+/* Cart Item Card */
+.cart-item-card {
+    width: 200px; /* Adjusted width for smaller cards */
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Hover effect for cards */
+.cart-item-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Cart Item Image */
+.cart-item-image {
+    width: 50%; /* Smaller image size */
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+/* Cart Item Title and Price */
+.cart-item-card h3 {
+    margin-top: 10px;
+    font-size: 16px; /* Smaller font size for title */
+    color: #333;
+    font-weight: 600;
+}
+
+.cart-item-card p {
+    font-size: 12px; /* Reduced font size for description */
+    color: #666;
+    margin: 5px 0;
+}
+
+/* Quantity and Buttons */
+.cart-item-card div {
+    margin: 10px 0;
+}
+
+.cart-item-card button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.cart-item-card button:hover {
+    background-color: #0056b3;
+}
+
+/* Total Price */
+#total-price {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 20px;
+    color: #333;
+}
+
+/* Pay Button */
+#pay-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px; /* Slightly smaller button font */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 20px;
+    width: 50%;
+    margin-bottom: 20px;
+}
+
+/* Hover effect for pay button */
+#pay-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* Responsive Design for Mobile */
+@media screen and (max-width: 768px) {
+    .cart-item-card {
+        width: 90%; /* Full-width on small screens */
+        margin: 0 auto 20px;
+    }
+
+    #pay-button {
+        width: 80%; /* Button width adjustment for mobile */
+    }
+
+    #cart-items {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+}

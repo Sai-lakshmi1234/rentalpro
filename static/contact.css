@@ -1,0 +1,179 @@
+.menu {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    gap: 40px;
+    letter-spacing: 2px;
+    background-color: transparent;
+}
+
+.menu a {
+    color: black;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+.menu a:hover {
+    color: lightblue;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .content h1 {
+        font-size: 2rem;
+    }
+    .content p {
+        font-size: 1.2rem;
+    }
+    .menu {
+        flex-direction: column;
+        gap: 20px;
+        padding-left: 0;
+    }
+    .menu a {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .content h1 {
+        font-size: 1.5rem;
+    }
+    .content p {
+        font-size: 1rem;
+    }
+    .menu a {
+        font-size: 0.9rem;
+    }
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-image: url(../../assests/IMAGES/road.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.contact-container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 40px 20px; /* Reduced padding for smaller height */
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    width: 90%;
+    max-width: 500px;
+    animation: fadeIn 1.5s ease-in-out;
+    color: black;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.contact-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    display: block;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    font-size: 14px;
+    background: transparent;
+    color: #333;
+}
+
+textarea {
+    resize: none;
+    height: 120px;
+}
+
+button {
+    background: #6a11cb;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #4b0e91;
+}
+
+.contact-info {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    color: black;
+    display: flex;
+    justify-content: space-between;
+    padding: 25px 280px; /* Increased padding for larger navbar size */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.navbar a {
+    color: black;
+    text-decoration: none;
+    margin: 0 1rem; /* Increased spacing between links */
+    font-size: 1.2rem; /* Increased font size for better visibility */
+}
+
+.navbar a:hover {
+    color: #f0a500;
+}
+
+.navbar .menu {
+    display: flex;
+}
+
+/* Add padding to content to avoid overlap */
+.contact-container {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}

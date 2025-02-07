@@ -1,0 +1,175 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Navigation bar styling */
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about h1 {
+        font-size: 2rem;
+    }
+    .about p {
+        font-size: 0.9rem;
+    }
+}
+@media (max-width: 480px) {
+    .about h1 {
+        font-size: 1.8rem;
+    }
+    .about p {
+        font-size: 0.8rem;
+    }
+    .about {
+        padding: 20px;
+    }
+}
+.menu {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    gap: 40px;
+    letter-spacing: 2px;
+}
+
+.menu a {
+    color: black;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+.menu a:hover {
+    color: lightblue;
+}
+@media (max-width: 768px) {
+    .content h1 {
+        font-size: 2rem;
+    }
+    .content p {
+        font-size: 1.2rem;
+    }
+    .menu {
+        flex-direction: column;
+        gap: 20px;
+        padding-left: 0;
+    }
+    .menu a {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .content h1 {
+        font-size: 1.5rem;
+    }
+    .content p {
+        font-size: 1rem;
+    }
+    .menu a {
+        font-size: 0.9rem;
+    }
+}
+
+/* Search bar and category filter styles */
+.filter-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    margin-top: 60px; /* to avoid overlap with navbar */
+}
+
+#search-bar {
+    width: 70%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#category-select {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+
+/* Main content to avoid overlap with navbar */
+main {
+    padding-top: 60px;
+}
+
+/* Cards container for images */
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Card styling */
+.card {
+    position: relative;
+    width: 300px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.card img {
+    width: 100%;
+    display: block;
+}
+
+.card .overlay {
+    position: relative;
+    text-align: center;
+    padding: 10px;
+}
+
+.overlay h3 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.overlay p {
+    margin: 5px 0 10px;
+    font-size: 1em;
+}
+
+.read-more-content {
+    display: none;
+    padding: 10px;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.read-more-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.read-more-btn:hover {
+    background-color: #007bff;
+}
+
+@media (max-width: 768px) {
+    .cards-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .card {
+        width: 90%;
+    }
+}
+
